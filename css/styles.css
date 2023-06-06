@@ -1,0 +1,87 @@
+/* General */
+*::after,
+*::before,
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: "Lato";
+    color: #000000;
+    background-color:#D14D72;
+}
+
+.carrito-icono {
+    width: 40px;
+    height: 40px;
+}
+
+img {
+    max-width: 100%;
+}
+
+div {
+    text-align: center;
+}
+
+/* Cabeza del HTML */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10px 40px 10px;
+}
+ 
+
+/* Main */
+
+.container-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.product {
+    border-radius:10px;
+    background-color: #E8A0BF;
+}
+.product:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+.product figure {
+    overflow: hidden;
+}
+.product img {
+    transition: all .5s;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.product:hover img{
+    transform: scale(1.2);
+}
+
+
+.info_item {
+    padding:10px;
+    line-height: 1;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.price {
+    font-size:15px;
+    font-weight: 100px;
+}
+.info_item button{
+    border: none;
+    background: none;
+    background-color:#000000;
+    color:aliceblue;
+    padding: 15px, 10px;
+    cursor: pointer;
+}
