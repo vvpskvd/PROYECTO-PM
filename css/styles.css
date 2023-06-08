@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
 }
-
 body{
     margin: 0 auto;
     max-width: 1200px;
@@ -13,71 +12,122 @@ body{
     color: #000000;
     background-color:#D14D72;
 }
-
-.carrito-icono {
-    width: 40px;
-    height: 40px;
-}
-
 img {
-    max-width: 100%;
+    max-width: 350px;
 }
 
-div {
-    text-align: center;
+.hidden-cart {
+    text-align: left;
 }
 
-/* Cabeza del HTML */
+.contenedor-item {
+    text-align:center;
+}
+
+/*Cabeza del HTML*/
 header {
     display: flex;
     justify-content: space-between;
     padding: 30px 10px 40px 10px;
 }
- 
+
+/*Iconos*/
+.carrito-icono {
+    width: 40px;
+    height: 40px;
+    stroke: #000000;
+}
+
+.contenedor-iconos {
+    position: relative;
+}
+
+.cantidad-productos {
+    position: absolute;
+    top: 55%;
+    right: 0;
+
+    background-color: #000000;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.contenedor-carro {
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    background-color:#fff;
+    width: 400px;
+    z-index: 1;
+}
+
+.productos-carrito {
+    display:flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.info-producto-carrito {
+    display:flex;
+    justify-content: space-between;
+}
+
+.cancelar-productos {
+    width: 25px;
+    height: 25px;
+}
+
 
 /* Main */
 
-.container-item {
+.contenedor-item {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 10px;
 }
-.product {
+
+
+.producto {
     border-radius:10px;
     background-color: #E8A0BF;
 }
-.product:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+.producto:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-
-.product figure {
+.producto figure {
     overflow: hidden;
 }
-.product img {
+.producto img {
     transition: all .5s;
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
 }
-.product:hover img{
+.producto:hover img{
     transform: scale(1.2);
 }
 
 
-.info_item {
+.info-producto {
     padding:10px;
     line-height: 1;
     display:flex;
     flex-direction:column;
     gap:10px;
 }
-.price {
+.precio {
     font-size:15px;
     font-weight: 100px;
 }
-.info_item button{
+.info-producto button{
     border: none;
     background: none;
     background-color:#000000;
