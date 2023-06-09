@@ -10,8 +10,16 @@ body{
     max-width: 1200px;
     font-family: "Lato";
     color: #000000;
-    background-color:#D14D72;
+    background-color:#921151;
 }
+
+.imagen-fondo {
+    background-image: url(/images/background.png);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+}
+
 img {
     max-width: 350px;
 }
@@ -38,10 +46,16 @@ header {
     stroke: #000000;
 }
 
+.carrito-icono:hover {
+    cursor: pointer;
+}
+
 .contenedor-iconos {
     position: relative;
 }
 
+
+/*Carrito de compras*/
 .cantidad-productos {
     position: absolute;
     top: 55%;
@@ -58,6 +72,10 @@ header {
     border-radius: 50%;
 }
 
+#contador-items {
+    font-size: 12px;
+}
+
 .contenedor-carro {
     position: absolute;
     top: 50px;
@@ -66,17 +84,39 @@ header {
     background-color:#fff;
     width: 400px;
     z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
 }
 
 .productos-carrito {
     display:flex;
+    align-items: center;
     justify-content: space-between;
     padding: 30px;
+
+    border-bottom: 2.5px solid rgba(0, 0, 0, 0.20)
 }
 
 .info-producto-carrito {
-    display:flex;
+    display: flex;
     justify-content: space-between;
+    flex: 0.95;
+}
+
+.cantidad-producto-carrito {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.titulo-producto-carrito {
+    font-size: 20px;
+}  
+
+.precio-producto-carrito {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .cancelar-productos {
@@ -84,8 +124,35 @@ header {
     height: 25px;
 }
 
+.cancelar-productos:hover {
+    stroke: red;
+    cursor: pointer;
+}
 
-/* Main */
+.total-carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.total-carrito h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.total-pagar {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/*Ocultar carrito*/
+.hidden-cart {
+    display: none;
+}
+
+/*Main*/
 
 .contenedor-item {
     display: grid;
@@ -96,7 +163,7 @@ header {
 
 .producto {
     border-radius:10px;
-    background-color: #E8A0BF;
+    background-color: #ff0080;
 }
 .producto:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
