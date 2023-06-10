@@ -10,7 +10,7 @@ body{
     max-width: 1200px;
     font-family: "Lato";
     color: #000000;
-    background-color:#921151;
+    background-color: #F2D8D8;
 }
 
 .imagen-fondo {
@@ -29,6 +29,10 @@ img {
 }
 
 .contenedor-item {
+    text-align:center;
+}
+
+.contenedor-item2 {
     text-align:center;
 }
 
@@ -147,14 +151,21 @@ header {
     font-weight: 900;
 }
 
+
 /*Ocultar carrito*/
 .hidden-cart {
     display: none;
 }
 
-/*Main*/
 
+/*Main*/
 .contenedor-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.contenedor-item2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -163,7 +174,7 @@ header {
 
 .producto {
     border-radius:10px;
-    background-color: #ff0080;
+    background-color: #E893CF;
 }
 .producto:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
