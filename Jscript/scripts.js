@@ -6,7 +6,6 @@ const rowProduct = document.querySelector(".row-product")
 
 /*Lista de todos los contenedores de prpductos*/
 const productList = document.querySelector(".contenedor-item")
-const productList2 = document.querySelector(".contenedor-item2")
 
 /*arreglos de productos*/
 let allProducts = []
@@ -31,21 +30,6 @@ productList.addEventListener("click", e => {
         allProducts = [...allProducts, infoProduct]
     }
 
-})
-
-productList2.addEventListener("click", e => {
-    
-    if(e.target.classList.contains("btn-add-cart")){
-        const product = e.target.parentElement
-        
-        const infoProduct = {
-            quantity: 1,
-            title: (product.querySelector("h2").textContent),
-            price: (product.querySelector("p").textContent)
-        }
-
-        allProducts = [...allProducts, infoProduct]
-    }
 })
 
 /*HTML*/
