@@ -1,54 +1,83 @@
-/*Constantes y funciones*/
-const btnCart = document.querySelector(".contenedor-icono-carro")
-const CartProduct = document.querySelector(".contenedor-carro")
-const CarritoInfo = document.querySelector(".productos-carrito")
-const rowProduct = document.querySelector(".row-product")
+//Main
+const btnCart = document.querySelector(".container-cart-icon");
+const cartInfo = document.querySelector(".cart-product");
+const rowProduct = document.querySelector(".row-product");
+const containerCartProducts = document.querySelector(".container-cart-products");
 
-/*Lista de todos los contenedores de prpductos*/
-const productList = document.querySelector(".contenedor-item")
+btnCart.addEventListener('click', () => {
+	containerCartProducts.classList.toggle("hidden-cart")
+});
 
-/*arreglos de productos*/
-let allProducts = []
+// All product container
+const productsList = document.querySelector(".container-items");
 
-/*Main*/
-btnCart.addEventListener("click", () => {
-    CartProduct.classList.toggle("hidden-cart")
-})
+// Products
+let allProducts = [];
 
-/*Lista de productos*/
-productList.addEventListener("click", e => {
+const valorTotal = document.querySelector('.total-pagar');
+const countProducts = document.querySelector('#contador-productos');
 
-    if(e.target.classList.contains("btn-add-cart")){
-        const product = e.target.parentElement
-        
-        const infoProduct = {
-            quantity: 1,
-            title: (product.querySelector("h2").textContent),
-            price: (product.querySelector("p").textContent)
-        }
+const cartEmpty = document.querySelector('.cart-empty');
+const cartTotal = document.querySelector('.cart-total');
 
-        allProducts = [...allProducts, infoProduct]
-    }
+//Cart changes
+productsList.addEventListener('click', e => {
+	if (e.target.classList.contains('btn-add-cart')) {
+		const product = e.target.parentElement;
 
-})
+		const infoProduct = {
+			quantity: 1,
+			title: product.querySelector('h2').textContent,
+			price: product.querySelector('p').textContent,
+		};
 
-/*HTML*/
+		const exits = allProducts.some(
+			product => product.title === infoProduct.title
+		);
 
+		if (exits) {
+			const products = allProducts.map(product => {
+				if (product.title === infoProduct.title) {
+					product.quantity++;
+					return product;
+				} else {
+					return product;
+				}
+			});
+			allProducts = [...products];
+		} else {
+			allProducts = [...allProducts, infoProduct];
+		}
+
+		showHTML();
+	}
+});
+
+rowProduct.addEventListener('click', e => {
+	if (e.target.classList.contains('icon-close')) {
+		const product = e.target.parentElement;
+		const title = product.querySelector('p').textContent;
+
+		allProducts = allProducts.filter(
+			product => product.title !== title
+		);
+
+		console.log(allProducts);
+
+		showHTML();
+	}
+});
+
+// Function to show cart
 const showHTML = () => {
-
-    allProducts.forEach(products => {
-        const containerProduct = document.createElement("div")
-        containerProduct.classList.add("productos-carrito")
-        containerProduct.innerHTML = `
-                    <div class="info-producto-carrito">
-                        <span class="cantidad-producto-carrito"></span>${product.quantity}</span>
-                            <p class="titulo-producto-carrito">${product.title}</p>
-                                <span class="precio-producto-carrito">${product.price}</span>
-                    </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cancelar-productos">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                                `
-    })
+	if (!allProducts.length) {
+		cartEmpty.classList.remove('hidden');
+		rowProduct.classList.add('hidden');
+		cartTotal.classList.add('hidden');
+	} else {
+		cartEmpty.classList.add('hidden');
+		rowProduct.classList.remove('hidden');
+		cartTotal.classList.remove('hidden');
+	}
 
 }
