@@ -132,14 +132,14 @@ header{
 }
 
 
-/*All Containers*/
+/*Main Container*/
 .container-items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-/*Products*/
+/*Info Products*/
 .item{
     border-radius: 10px;
     background-color: rgb(243, 127, 204);
