@@ -27,7 +27,7 @@ productsList.addEventListener('click', e => {
 
 		const infoProduct = {
 			quantity: 1,
-			title: product.querySelector('h2').textContent,
+			title: product.querySelector('h1').textContent,
 			price: product.querySelector('p').textContent,
 		};
 
@@ -80,4 +80,34 @@ const showHTML = () => {
 		cartTotal.classList.remove('hidden');
 	}
 
-}
+		// Clean HTML
+		rowProduct.innerHTML = '';
+
+		let total = 0;
+		let totalOfProducts = 0;
+	
+		allProducts.forEach(product => {
+			const containerProduct = document.createElement('div');
+			containerProduct.classList.add('cart-product');
+	
+			containerProduct.innerHTML = `
+				<div class="info-cart-product">
+					<span class="cantidad-producto-carrito">${product.quantity}</span>
+					<p class="titulo-producto-carrito">${product.title}</p>
+					<span class="precio-producto-carrito">${product.price}</span>
+				</div>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>        
+			`;
+	
+			rowProduct.append(containerProduct);
+	
+			total =
+				total + parseInt(product.quantity * product.price.slice(1));
+			totalOfProducts = totalOfProducts + product.quantity;
+		});
+	
+		valorTotal.innerText = `$${total}`;
+		countProducts.innerText = totalOfProducts;
+};
