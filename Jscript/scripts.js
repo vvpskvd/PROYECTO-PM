@@ -11,7 +11,7 @@ btnCart.addEventListener('click', () => {
 // All product container
 const productsList = document.querySelector(".container-items");
 
-// Products
+// List of Products
 let allProducts = [];
 
 const valorTotal = document.querySelector('.total-pagar');
@@ -20,7 +20,7 @@ const countProducts = document.querySelector('#contador-productos');
 const cartEmpty = document.querySelector('.cart-empty');
 const cartTotal = document.querySelector('.cart-total');
 
-//Cart changes
+//Cart changes everytime we add a product
 productsList.addEventListener('click', e => {
 	if (e.target.classList.contains('btn-add-cart')) {
 		const product = e.target.parentElement;
@@ -80,7 +80,7 @@ const showHTML = () => {
 		cartTotal.classList.remove('hidden');
 	}
 
-		// Clean HTML
+		// Clean cart
 		rowProduct.innerHTML = '';
 
 		let total = 0;
